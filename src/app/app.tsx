@@ -1,6 +1,7 @@
 import { Outlet, useLocation } from 'react-router-dom'
 import { AppHeader } from '@/features/header'
 import { ROUTES } from '@/shared/model/routes'
+import { Providers } from '@/app/providers.tsx'
 
 export const App = () => {
 	const location = useLocation()
@@ -10,9 +11,11 @@ export const App = () => {
 		location.pathname === ROUTES.REGISTER
 
 	return (
-		<div>
-			{!isAuthPage && <AppHeader />}
-			<Outlet />
-		</div>
+		<Providers>
+			<div>
+				{!isAuthPage && <AppHeader />}
+				<Outlet />
+			</div>
+		</Providers>
 	)
 }

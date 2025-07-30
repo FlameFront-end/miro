@@ -9,10 +9,14 @@
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix",
 		"prettier:fix": "npx prettier -w .",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"api": "npx openapi-typescript ./src/shared/api/schema/main.yaml -o ./src/shared/api/schema/generated.ts",
+		"worker:init": "npx msw init public --save"
 	},
 	"dependencies": {
-		"eslint-plugin-boundaries": "^5.0.1",
+		"@tanstack/react-query": "^5.74.9",
+		"openapi-fetch": "^0.13.5",
+		"openapi-react-query": "^0.3.1",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
 		"react-router-dom": "^7.7.1"
@@ -28,10 +32,18 @@
 		"eslint-plugin-react-hooks": "^5.2.0",
 		"eslint-plugin-react-refresh": "^0.4.19",
 		"globals": "^16.3.0",
+		"msw": "^2.7.5",
+		"openapi-msw": "^1.2.0",
+		"openapi-typescript": "^7.6.1",
 		"prettier": "3.6.2",
 		"typescript": "~5.8.3",
 		"typescript-eslint": "^8.35.1",
 		"vite": "^7.0.4",
 		"vite-tsconfig-paths": "^5.1.4"
+	},
+	"msw": {
+		"workerDirectory": [
+			"public"
+		]
 	}
 }
