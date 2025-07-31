@@ -3,6 +3,8 @@ import { Link, generatePath } from 'react-router-dom'
 import { rqClient } from '@/shared/api/instance.ts'
 import { FormEvent } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
+import { Card, CardFooter, CardHeader } from '@/shared/ui/kit/card.tsx'
+import { Button } from '@/shared/ui/kit/button.tsx'
 
 const BoardsListPage = () => {
 	const queryClient = useQueryClient()
@@ -38,7 +40,7 @@ const BoardsListPage = () => {
 	}
 
 	return (
-		<div>
+		<div className='container mx-auto p-4'>
 			<h1>Boards list</h1>
 
 			<form onSubmit={handleSubmit}>
@@ -49,26 +51,36 @@ const BoardsListPage = () => {
 				</button>
 			</form>
 
-			{boardsQuery.data?.map(board => (
-				<div key={board.id}>
-					<Link
-						to={generatePath(ROUTES.BOARD, { boardId: board.id })}
-					>
-						{board.name}
-					</Link>
-
-					<button
-						disabled={deleteBoardMutation.isPending}
-						onClick={() =>
-							deleteBoardMutation.mutate({
-								params: { path: { boardId: board.id } }
-							})
-						}
-					>
-						Delete
-					</button>
-				</div>
-			))}
+			<div className='grid grid-cols-3 gap-4'>
+				{boardsQuery.data?.map(board => (
+					<Card key={board.id}>
+						<CardHeader>
+							<Button asChild variant='link'>
+								<Link
+									to={generatePath(ROUTES.BOARD, {
+										boardId: board.id
+									})}
+								>
+									{board.name}
+								</Link>
+							</Button>
+						</CardHeader>
+						<CardFooter>
+							<Button
+								variant='destructive'
+								disabled={deleteBoardMutation.isPending}
+								onClick={() =>
+									deleteBoardMutation.mutate({
+										params: { path: { boardId: board.id } }
+									})
+								}
+							>
+								Delete
+							</Button>
+						</CardFooter>
+					</Card>
+				))}
+			</div>
 		</div>
 	)
 }
