@@ -14,6 +14,8 @@
 		"worker:init": "npx msw init public --save"
 	},
 	"dependencies": {
+		"@hookform/resolvers": "^5.2.1",
+		"@radix-ui/react-label": "^2.1.7",
 		"@radix-ui/react-slot": "^1.2.3",
 		"@tailwindcss/vite": "^4.1.4",
 		"@tanstack/react-query": "^5.74.9",
@@ -24,9 +26,11 @@
 		"openapi-react-query": "^0.3.1",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
+		"react-hook-form": "^7.62.0",
 		"react-router-dom": "^7.7.1",
 		"tailwind-merge": "^3.3.1",
-		"tailwindcss": "^4.1.4"
+		"tailwindcss": "^4.1.4",
+		"zod": "^4.0.14"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.30.1",

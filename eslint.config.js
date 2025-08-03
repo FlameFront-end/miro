@@ -24,7 +24,6 @@ export default tseslint.config(
 				'warn',
 				{ allowConstantExport: true }
 			],
-			'func-style': ['error', 'expression']
 		}
 	},
 	eslintBoundariesConfig

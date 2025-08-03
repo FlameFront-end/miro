@@ -12,7 +12,7 @@ export const App = () => {
 
 	return (
 		<Providers>
-			<div>
+			<div className='min-h-screen flex flex-col'>
 				{!isAuthPage && <AppHeader />}
 				<Outlet />
 			</div>
