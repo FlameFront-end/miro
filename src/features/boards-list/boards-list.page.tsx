@@ -8,8 +8,8 @@ import { Button } from '@/shared/ui/kit/button.tsx'
 
 const BoardsListPage = () => {
 	const queryClient = useQueryClient()
-
 	const boardsQuery = rqClient.useQuery('get', '/boards')
+
 	const createBoardMutation = rqClient.useMutation('post', '/boards', {
 		onSettled: async () => {
 			await queryClient.invalidateQueries(
