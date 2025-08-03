@@ -12,7 +12,7 @@ import { Input } from '@/shared/ui/kit/input.tsx'
 import { Button } from '@/shared/ui/kit/button.tsx'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useLogin } from '@/features/auth/models/use-login.ts'
+import { useLogin } from '@/features/auth/model/use-login.ts'
 
 const loginSchema = z.object({
 	email: z
